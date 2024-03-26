@@ -22,7 +22,7 @@ function Home() {
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
                             <h1 className="text-2xl font-bold hover:text-gray-500">
-                                {!loading ? <>Login to see posts</> : <div className='flex justify-center'><img width={60} className=' text-center' src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjEwZjR3djh2OTRiNXozYnU1emV4MDJ4am56N2Y5dGIxaGJhdnFhYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu3XilJ5BOiSGic/giphy.gif' alt='loading...' />'</div>}
+                                {!loading ? <>Login to see posts</> : <div className='flex justify-center'><img width={60} className=' text-center' src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjEwZjR3djh2OTRiNXozYnU1emV4MDJ4am56N2Y5dGIxaGJhdnFhYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu3XilJ5BOiSGic/giphy.gif' alt='loading...' /></div>}
                             </h1>
                         </div>
                     </div>
