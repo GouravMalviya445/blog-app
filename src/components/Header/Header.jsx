@@ -2,10 +2,18 @@ import React from 'react'
 import { LogoutBtn, Container, Logo } from '../index'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { RxHamburgerMenu } from "react-icons/rx"
+import { RxCross1 } from 'react-icons/rx'
+import { useState } from 'react'
 
 const Header = () => {
   const navigate = useNavigate();
   const authStatus = useSelector(state => state.auth.status)
+
+  const [slider, setSlider] = useState(false);
+  const handleClick = () => {
+    setSlider(!slider);
+  }
 
   const navItems = [
     {
@@ -45,7 +53,7 @@ const Header = () => {
             </Link>
           </div>
 
-          <ul className='flex ml-auto'>
+          <ul className='flex max-sm:hidden ml-auto'>
             {
               navItems.map(item => (
                 item.active ? (
@@ -65,6 +73,38 @@ const Header = () => {
             </Link>
             {
               authStatus && <li><LogoutBtn /></li>
+            }
+          </ul>
+
+          <button onClick={handleClick} className='ml-auto self-center hidden max-sm:block'>
+            {
+              !slider ? <RxHamburgerMenu size={30} /> : <RxCross1 size={30} />
+            }
+          </button>
+
+          <ul className={!slider ? 'fixed left-[-100%] top-[9vh] px-2 bg-gray-900 w-full text-center ml-auto transition-all ease-in duration-[.25s]' : 'fixed left-0 top-[9vh] px-2 bg-gray-900 w-full text-center ml-auto transition-all duration-[.4s] ease-in-out'}>
+            {
+              navItems.map(item => (
+                item.active ? (
+                  <li key={item.name} className='border-b'>
+                    <button
+                      onClick={() => (
+                        navigate(item.slug),
+                        setSlider(false)
+                        )}
+                      className='inline-block w-full py-2 duration-200 hover:bg-pink-400 rounded-full'
+                    >{item.name}</button>
+                  </li>
+                ) : null
+              ))
+            }
+            <Link to='https://github.com/GouravMalviya445' target='_blank'>
+              <button onClick={() => setSlider(false)} className='inine-block px-6 py-2 duration-200 hover:bg-pink-400 rounded-full'>
+                Github
+              </button>
+            </Link>
+            {
+              authStatus && <li onClick={() => setSlider(false)} className='border-t'><LogoutBtn /></li>
             }
           </ul>
         </nav>
