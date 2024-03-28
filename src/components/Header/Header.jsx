@@ -82,7 +82,7 @@ const Header = () => {
             }
           </button>
 
-          <ul className={!slider ? 'fixed z-50 left-[-100%] top-[9vh] px-2 bg-gray-900 w-full text-center ml-auto transition-all ease-in duration-[.25s]' : 'fixed z-50 left-0 top-[9vh] px-2 bg-gray-900 w-full text-center ml-auto transition-all duration-[.4s] ease-in-out'}>
+          <ul className={!slider ? 'fixed z-50 left-0 top-[-100%] px-2 bg-gray-900 opacity-10 w-full text-center ml-auto transition-all ease-in duration-[.35s]' : 'fixed z-50 left-0 top-[75px] px-2 bg-gray-900 w-full text-center ml-auto opacity-100 transition-all duration-[.4s] ease-in-out'}>
             {
               navItems.map(item => (
                 item.active ? (
@@ -99,12 +99,12 @@ const Header = () => {
               ))
             }
             <Link to='https://github.com/GouravMalviya445' target='_blank'>
-              <button onClick={() => setSlider(false)} className='inine-block px-6 py-2 duration-200 hover:bg-pink-400 rounded-full'>
+              <button onClick={() => setSlider(false)} className='inine-block w-full px-6 py-2 duration-200 hover:bg-pink-400 rounded-full'>
                 Github
               </button>
             </Link>
             {
-              authStatus && <li onClick={() => setSlider(false)} className='border-t'><LogoutBtn /></li>
+              authStatus && <li onClick={() => setSlider(false)} className='border-t'><LogoutBtn className='w-full' /></li>
             }
           </ul>
         </nav>
