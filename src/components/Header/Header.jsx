@@ -82,7 +82,7 @@ const Header = () => {
             }
           </button>
 
-          <ul className={!slider ? 'fixed left-[-100%] top-[9vh] px-2 bg-gray-900 w-full text-center ml-auto transition-all ease-in duration-[.25s]' : 'fixed left-0 top-[9vh] px-2 bg-gray-900 w-full text-center ml-auto transition-all duration-[.4s] ease-in-out'}>
+          <ul className={!slider ? 'fixed z-50 left-[-100%] top-[9vh] px-2 bg-gray-900 w-full text-center ml-auto transition-all ease-in duration-[.25s]' : 'fixed z-50 left-0 top-[9vh] px-2 bg-gray-900 w-full text-center ml-auto transition-all duration-[.4s] ease-in-out'}>
             {
               navItems.map(item => (
                 item.active ? (
@@ -91,7 +91,7 @@ const Header = () => {
                       onClick={() => (
                         navigate(item.slug),
                         setSlider(false)
-                        )}
+                      )}
                       className='inline-block w-full py-2 duration-200 hover:bg-pink-400 rounded-full'
                     >{item.name}</button>
                   </li>
